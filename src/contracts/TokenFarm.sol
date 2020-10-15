@@ -35,6 +35,17 @@ function stakeTokens(uint _amount) public {
     //update their status
     hasStaked[msg.sender] = true;
 }
+
+function unstakeTokens() public{
+    uint balance = stakingBalance[msg.sender];
+    require(balance>0,"staking balance cannot be 0");
+    daiToken.transfer(msg.sender,balance);
+    //balance empties
+    stakingBalance[msg.sender] = 0;
+    //update status
+    isStaking[msg.sender] = false;
+}
+
 function issueToken() public {
     require(msg.sender == owner, "Only the owner of the contract can issue token");
     
