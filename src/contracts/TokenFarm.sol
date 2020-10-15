@@ -5,8 +5,8 @@ import './DaiToken.sol';
 contract TokenFarm {
 
 string public name = 'Karma Token Farm';
-KarmaToken public karmaToken
-DaiToken public daiToken
+KarmaToken public karmaToken;
+DaiToken public daiToken;
 
 constructor(KarmaToken _karmaToken, DaiToken _daiToken) public {
 
