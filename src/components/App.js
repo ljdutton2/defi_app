@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
+import Navigation from './Navbar'
 import DaiToken from '../abis/DaiToken.json'
 import KarmaToken from '../abis/KarmaToken.json'
 import TokenFarm from '../abis/TokenFarm.json'
@@ -118,11 +118,12 @@ class App extends Component {
     }
     return (
       <div>
-        <Navbar account={this.state.account} />
+        <Navigation account={this.state.account} />
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '600px' }}>
               <div className="content mr-auto ml-auto">
+                
               {content}
               </div>
             </main>

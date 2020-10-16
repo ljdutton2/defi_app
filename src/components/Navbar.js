@@ -1,28 +1,24 @@
 import React, { Component } from 'react'
 import farmer from '../farmer.png'
+// import {Nav,Navbar,NavDropdown,NavLink, NavbarBrand, NavbarCollapse} from 'react-bootstrap';
+import {Nav, Navbar, NavDropdown }  from 'react-bootstrap'
 
-class Navbar extends Component {
+class Navigation extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a
-        
-        >
-          <img src={farmer} width="30" height="30" className="d-inline-block align-top" alt="" />
-          &nbsp; Karma Coin
-        </a>
-
-        <ul className="navbar-nav px-3">
-          <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-            <small className="text-secondary">
-              <small id="account">{this.props.account}</small>
-            </small>
-          </li>
-        </ul>
-      </nav>
+      <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">Karma Coin</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#link">Account</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
     );
   }
 }
 
-export default Navbar;
+export default Navigation;
