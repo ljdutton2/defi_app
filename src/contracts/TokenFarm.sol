@@ -23,7 +23,7 @@ constructor(KarmaToken _karmaToken, DaiToken _daiToken) public {
 function stakeTokens(uint _amount) public {
     require(_amount>0,"amount cannot be zero");
     // transfer the mock tokens to the contract
-    daiToken.transferFrom(msg.sender,address(this), _amount);
+    daiToken.transferFrom(msg.sender, address(this), _amount);
 
     //update their staking balance
     stakingBalance[msg.sender] = stakingBalance[msg.sender] + _amount;
