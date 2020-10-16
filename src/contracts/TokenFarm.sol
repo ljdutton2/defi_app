@@ -1,4 +1,5 @@
 pragma solidity ^0.5.0;
+
 import './KarmaToken.sol';
 import './DaiToken.sol';
 
@@ -21,7 +22,7 @@ constructor(KarmaToken _karmaToken, DaiToken _daiToken) public {
 }
 
 function stakeTokens(uint _amount) public {
-    require(_amount>0,"amount cannot be zero");
+    require(_amount > 0,"amount cannot be zero");
     // transfer the mock tokens to the contract
     daiToken.transferFrom(msg.sender, address(this), _amount);
 
@@ -34,6 +35,7 @@ function stakeTokens(uint _amount) public {
     }
     //update their status
     hasStaked[msg.sender] = true;
+    isStaking[msg.sender] = true;
 }
 
 function unstakeTokens() public{
@@ -48,13 +50,13 @@ function unstakeTokens() public{
 
 function issueToken() public {
     require(msg.sender == owner, "Only the owner of the contract can issue token");
-    
     //issue token to all stakers
      for(uint i=0;i<stakers.length; i++) {
         address recipient = stakers[i];
         uint balance = stakingBalance[recipient];
         if(balance>0){
             karmaToken.transfer(recipient,balance);
+            
         }
         
         }
